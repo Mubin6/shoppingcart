@@ -1,0 +1,55 @@
+.samplecard {
+    .tags_view {
+        list-style: none;
+        li {
+            margin: 15px 0px;
+            .tags_wrap {
+                .imgwrap {
+                    float: left;
+                    margin: 0 0 0 203px;
+                }
+                .ratesrange {
+                    width: 134px;
+                    color: #000;
+                    padding: 0 10px 0 0;
+                    float: right;
+                    line-height: 15px;
+                    margin-top: 10px;
+                    font-size: 15px;
+                    font-weight: 700;
+                    font-family: 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+                    .plus_ship {
+                        font-size: 12px!important;
+                        font-weight: 700!important;
+                        display: block;
+                    }
+                    .view_range {
+                        font-size: 0!important;
+                        font-weight: 400!important;
+                    }
+                    .viewrange_buttonbox {
+                        padding: 10px 0 0;
+                        display: block;
+                    }
+                }
+            }
+            .fashiontags_bg {
+                background: url(https://s3-ap-southeast-2.amazonaws.com/pet-tags.com/images/fashionPanel.png) no-repeat;
+                width: 625px;
+                height: 132px;
+                padding: 10px 0 0;
+            }
+            .card {
+                background-color: #e1bee7;
+                background-image: linear-gradient(to bottom right, #e1bee7, #9c27b0);
+                border-radius: 10px;
+                border: 4px solid #6a1b9a;
+                .btn {
+                    border-radius: 20px;
+                    font-size: 12px;
+                    text-transform: lowercase;
+                }
+            }
+        }
+    }
+}

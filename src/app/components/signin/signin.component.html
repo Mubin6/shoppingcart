@@ -1,0 +1,115 @@
+<div class="m-0 row jujstify-content-center signInForm">
+    <!-- <button type="button" mdbBtn color="primary" class="waves-light" (click)="form.show()" mdbWavesEffect>
+        Contact form</button> -->
+    <!--Modal: Contact form-->
+    <!-- <div mdbModal #form="mdb-modal" class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
+    <div class="col-md-6 modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content">
+
+            <!--Header-->
+            <div class="modal-header light-blue darken-3 white-text">
+                <h4 class="title">
+                    {{title}}
+                    <mat-icon class="pull-right close-icon" (click)="close()" matSuffix>cancel</mat-icon>
+                </h4>
+            </div>
+            <!--Body-->
+            <div class="modal-body mb-0">
+                <form [formGroup]="modalForm">
+                    <div *ngIf="isLoginForm && !isForgotPassword" class="animated flipInX login-form">
+                        <div class="md-form form-sm">
+                            <i class="fa fa-envelope prefix"></i>
+                            <input mdbInputDirective placeholder="Your email" type="email" id="form6" class="form-control" data-error="Wrong Email" formControlName="loginEmail">
+                            <!-- data-success="Valid Email Pattern" -->
+                            <!-- <input type="text" class="form-control" placeholder="Your email" formControlName="loginEmail"> -->
+                            <!-- mdbInputDirective -->
+                            <!-- <label for="modalFormNameEx">Your email</label> -->
+                        </div>
+
+                        <div class="md-form form-sm">
+                            <i class="fa fa-lock prefix"></i>
+                            <input mdbInputDirective type="password" id="form2" placeholder="Your password" class="form-control" data-error="Password required (minimum 3 characters)" formControlName="loginPassword">
+                            <!-- data-success="Valid Password Range" -->
+
+                            <!-- <input type="password" class="form-control" placeholder="Your password" formControlName="loginPassword"> -->
+                            <!-- mdbInputDirective
+                            <label for="modalFormEmailEx">Password</label> -->
+                        </div>
+
+                        <div class="text-center mt-1-half">
+                            <button (click)="login()" mdbBtn color="info" class="mb-2 waves-light" mdbWavesEffect>Submit
+                                <i class="fa fa-send ml-1"></i>
+                            </button>
+                        </div>
+                        <!-- {{modalForm.controls.loginEmail.invalid}}, {{odalForm.controls.loginPassword.invalid}} -->
+                        <div class="text-center">
+                            <!-- <span style="font-size:14px;"><b>Forgot Password?</b></span> -->
+                            <a (click)="gotoforgotPassword()" class="text-primary">Forgot Password?</a>
+                        </div>
+
+                    </div>
+                    <div *ngIf="!isLoginForm && !isForgotPassword">
+                        <div class="animated flipInY register-form">
+                            <div class="md-form form-sm">
+                                <i class="fas fa-user-alt prefix"></i>
+                                <input mdbInputDirective placeholder="Your Name" type="text" id="form21" class="form-control" data-error="Atleast 2 characters required" formControlName="name">
+                                <!-- data-success="Valid name size" -->
+                                <!-- <input mdbInputDirective type="text" class="form-control" formControlName="name"> -->
+                                <!-- <label for="modalFormNameEx">Your Name</label> -->
+                            </div>
+                            <div class="md-form form-sm">
+                                <i class="fa fa-envelope prefix"></i>
+                                <input mdbInputDirective placeholder="Your email" type="email" id="form61" class="form-control" data-error="Wrong Email" formControlName="registerEmail">
+                                <!-- data-success="Valid Email Pattern" -->
+                                <!-- <input mdbInputDirective type="text" class="form-control" formControlName="registerEmail"> -->
+                                <!-- <label for="modalFormNameEx">Your email</label> -->
+                            </div>
+
+                            <div class="md-form form-sm">
+                                <i class="fa fa-lock prefix"></i>
+                                <input mdbInputDirective type="password" id="form22" placeholder="Your password" class="form-control" data-error="Password required (minimum 3 characters)" formControlName="registerPassword">
+                                <!-- data-success="Valid Password Range" -->
+                                <!-- <input mdbInputDirective type="password" class="form-control" formControlName="registerPassword"> -->
+                                <!-- <label for="modalFormEmailEx">Password</label> -->
+                            </div>
+                            <div class="text-center mt-1-half">
+                                <button (click)="registerForm()" mdbBtn color="info" class="mb-2 waves-light" mdbWavesEffect>Register
+                                    <i class="fa fa-send ml-1"></i>
+                                </button>
+                            </div>
+                            <div class="text-center">
+                                <span style="font-size:14px;">Already have an account?</span><a (click)="gotoLogin()" class="text-primary">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="isForgotPassword && !isLoginForm">
+                        <div class="animated flipInY">
+                            <span>
+                                    Enter your email address that you used to register. We'll send you an email.
+                                    <!-- with your username and a link to reset your password -->
+                            </span>
+                            <div class="md-form form-sm">
+                                <i class="fa fa-envelope prefix"></i>
+                                <input mdbInputDirective placeholder="Enter Your email" type="email" id="form65" class="form-control" data-error="Wrong Email" formControlName="forgotPassword">
+                                <!-- data-success="Valid Email Pattern" -->
+                                <!-- <input mdbInputDirective type="text" class="form-control" formControlName="forgotPassword"> -->
+                                <!-- <label for="modalFormNameEx">Enter your mail</label> -->
+                            </div>
+                            <div class="text-center mt-1-half">
+                                <button (click)="forgotPassword(modalForm.controls.forgotPassword.value)" mdbBtn color="info" class="mb-2 waves-light" mdbWavesEffect>Send
+                                    <i class="fa fa-send ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+    <!-- </div> -->
+    <!--Modal: Contact form-->
+</div>

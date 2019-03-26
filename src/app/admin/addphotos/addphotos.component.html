@@ -1,0 +1,63 @@
+<div class="container my-3 addphoto-container">
+    <div class="row justify-content-center">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group text-center">
+                    <div class="file-path mt-2" *ngIf="url">
+                        <img class=".img-thumbnail profile-pic" [src]="url" *ngIf="url" width="150px" height="150px">
+                    </div>
+                    <input type="text" class="d-none">
+                    <div class="pt-3 file-path" *ngIf="!url">
+                        <span>
+                        <i class="text-light fas fa-upload fa-6x"></i>
+                        <!-- <i class="fas fa-expand fa-8x"></i> -->
+                    </span>
+                    </div>
+                    <div>
+                        <small>(.png/ .jpeg/ .jpg)</small>
+                    </div>
+                    <div class="fileUpload btn text-center">
+                        <div class="dropZoneOverlay">
+                            <i class="fa fa-cloud-upload"></i> Upload Photo
+                        </div>
+                        <div class="my">
+                            <input #myInput class="FileUpload" type="file" accept=".png, .jpeg, .jpg" (change)="readUrl($event)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div>
+            <button (click)="addPhotos()" mdbBtn type="button" color="deep-purple" class="waves-light" mdbWavesEffect>Save</button>
+        </div>
+    </div>
+
+    <div>
+        <div class="container table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center align-middle" *ngFor="let title of tableHeading">{{title}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let data of photos;let i=index">
+                        <td>{{i+1}}</td>
+                        <td class="text-center align-middle">{{data.filename}}</td>
+                        <td>
+                            <img src="{{img}}/{{data.fnameextn}}" alt="" width="100px" height="100px">
+                        </td>
+                        <td class="text-center align-middle">
+                            <span class="text-danger" matTooltip="Delete Product" [matTooltipPosition]="'right'" aria-label="Button that displays a tooltip in various positions">
+                                <i (click)="deletePhotos(data.filename, i)" class="fas fa-times-circle fa-2x"></i>
+                          </span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

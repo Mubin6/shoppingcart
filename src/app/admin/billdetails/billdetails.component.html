@@ -1,0 +1,95 @@
+<div class="container my-4">
+    <div class="row">
+        <div class="col-12">
+            <mdb-card>
+                <mdb-card-header class="deep-orange lighten-1 white-text">
+                    Bill Detail
+                </mdb-card-header>
+                <mdb-card-body>
+                    <div class="container table-responsive border-bottom">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="font-weight-bold text-center align-middle" *ngFor="let title of tableHeading">{{title}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center" *ngFor="let data of products;let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td class="text-center align-middle">{{data.name}}</td>
+                                    <td class="text-center align-middle">{{data.price}}</td>
+                                    <td class="text-center align-middle">{{data.quantity}}</td>
+                                    <td class="text-center align-middle">{{data.price * data.quantity}}</td>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="row justify-content-between mt-3" *ngIf="billDetail">
+                        <div class="col-4 shippingDetails">
+                            <div style="font-weight: 500;font-size: 18px;">
+                                General Details
+                            </div>
+                            <div style="font-size: 14px;">
+                                <span style="font-weight: 500;">Invoice Date:</span> {{invDate}}
+                            </div>
+                            <div style="font-size: 14px;">
+                                <span style="font-weight: 500;">Status:</span> {{billDetail['status']}}
+                            </div>
+
+                        </div>
+                        <div class="col-4 shippingDetails">
+                            <div style="font-weight: 500;font-size: 18px;">
+                                Shipping Details
+                            </div>
+                            <div style="font-size: 14px;">
+                                <span style="font-weight: 500;">Name:</span> {{billDetail['username']}}
+                            </div>
+                            <div style="font-size: 14px;">
+                                <span style="font-weight: 500;">Address:</span> {{billDetail['address1']}},<br>{{billDetail['address2']}}
+                            </div>
+                            <div style="font-size: 14px;">
+                                <span style="font-weight: 500;">Email:</span> {{billDetail['useremailid']}}
+                            </div>
+                            <div style="font-size: 14px;">
+                                <span style="font-weight: 500;">Contact No:</span> {{billDetail['phoneno']}}
+                            </div>
+                        </div>
+                        <div class="col-4 text-right">
+                            <span style="font-weight: 500;font-size: 20px;margin-right: 42px;">Total: </span> {{billDetail.totalamount | currency: 'INR'}}
+                        </div>
+                    </div>
+                </mdb-card-body>
+            </mdb-card>
+            <mdb-card class="mt-2">
+                <mdb-card-header class="deep-orange lighten-1 white-text">
+                    Tag Details
+                </mdb-card-header>
+                <mdb-card-body>
+                    <div class="container table-responsive border-bottom">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="font-weight-bold text-center align-middle" *ngFor="let title of tagHeading">{{title}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center" *ngFor="let data of products;let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td class="text-center align-middle">{{data.name}}</td>
+                                    <td class="text-center align-middle">{{data.prod_frontnm}}</td>
+                                    <td class="text-center align-middle">{{data.prod_frontdesign}}</td>
+                                    <td class="text-center align-middle">{{data.prod_backnm}}</td>
+                                    <td class="text-center align-middle">{{data.prod_backinfo}}</td>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </mdb-card-body>
+            </mdb-card>
+        </div>
+    </div>
+</div>

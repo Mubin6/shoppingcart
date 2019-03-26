@@ -1,0 +1,50 @@
+.shop-navbar {
+    .top-bar {
+        background-color: #1a78c2;
+        color: #fff;
+        font-size: 0.85em;
+        padding: 5px 1rem;
+        font-weight: 300;
+        .cart-div {
+            text-align: right;
+        }
+        .cart-btn {
+            border-color: #fff;
+            color: #fff;
+        }
+    }
+    .main-nav {
+        .navbar-brand {
+            color: #000;
+            font-size: 30px;
+            font-weight: 600;
+            font-family: 'Fascinate Inline', cursive;
+        }
+        .nav-link {
+            color: #000;
+            font-weight: 400;
+        }
+    }
+    @media screen and (max-width: 575px) {
+        .top-bar {
+            .row {
+                .number-div {
+                    text-align: center;
+                }
+                .cart-div {
+                    text-align: center;
+                }
+            }
+        }
+    }
+    @media (min-width: 320px) and (max-width: 350px) {
+        .navbar-brand {
+            font-size: 25px !important;
+        }
+    }
+     ::ng-deep .navbar-dark {
+        .navbar-toggler {
+            background-color: #000;
+        }
+    }
+}

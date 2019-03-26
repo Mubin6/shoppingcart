@@ -1,0 +1,85 @@
+<div class="container checkout">
+    <div class="row">
+        <div class="col-lg-8">
+            <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                <mat-step>
+                    <ng-template matStepLabel>Delivery Address</ng-template>
+                    <app-delivery-address></app-delivery-address>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Order Summary</ng-template>
+                    <app-order-summary></app-order-summary>
+                </mat-step>
+                <!-- <mat-step>
+                    <ng-template matStepLabel>Payment Option</ng-template>
+                    <app-payment-option></app-payment-option>
+                </mat-step> -->
+            </mat-horizontal-stepper>
+        </div>
+        <div class="col-lg-4 priceDetails">
+            <div class="card paymentCard">
+                <div class="card-header">
+                    PRICE DETAILS
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 label">
+                            Sub Total
+                        </div>
+                        <div class="col-6 price">
+                            {{totalAmt | currency:'INR'}}
+
+                        </div>
+                        <!-- <div class="col-6 label">
+                            Bag Discount
+                        </div>
+                        <div class="col-6 price">
+                            - Rs. 1,330
+
+                        </div> -->
+                        <!-- <div class="col-6 label">
+                            Estimated Tax
+
+                        </div>
+                        <div class="col-6 price">
+                            Rs. 102
+
+
+                        </div> -->
+                        <!-- <div class="col-6 label">
+                            Coupon Discount
+                        </div>
+                        <div class="col-6 price">
+                            Rs. 1,899
+
+                        </div> -->
+                        <div class="col-6 label">
+                            Delivery Charges
+                        </div>
+                        <div class="col-6 price">
+                            FREE
+
+                        </div>
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                        <div class="col-6 label">
+                            Order Total
+                        </div>
+                        <div class="col-6 price">
+                            {{totalAmt | currency:'INR'}}
+                        </div>
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                        <div class="col-12">
+                            <button (click)="placeOrder()" class="btn btn-info btn-block"> PLACE ORDER</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

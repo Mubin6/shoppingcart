@@ -1,0 +1,72 @@
+<!-- <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()" mdbWavesEffect>Launch demo modal</button> -->
+
+
+<div class="modal-dialog modal-full-height modal-right product-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="text-white pt-4 close pull-right" aria-label="Close" (click)="closeModal()">
+              <span aria-hidden="true"><i class="fas fa-times-circle"></i></span>
+            </button>
+            <h4 class="modal-title w-100" id="myModalLabel">{{title}}</h4>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]='productForm' class="product-form">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Product Size" formControlName="prodSize">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Product Price" formControlName="prodPrice">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-select placeholder="Select Category" (selectionChange)="selectedCategory($event)" formControlName="prodCategory">
+                                    <mat-option *ngFor="let category of categories" [value]="category">
+                                        {{category}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput #message maxlength="250" placeholder="Product Info" formControlName="prodInfo">
+                                <!-- <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint> -->
+                                <mat-hint align="end">{{message.value.length}} / 250</mat-hint>
+                            </mat-form-field>
+                            <div class="card-body">
+                                <div class="form-group text-center card border border-light rounded">
+                                    <div class="file-path mt-2" *ngIf="url">
+                                        <img class=".img-thumbnail profile-pic" [src]="url" *ngIf="url" width="150px" height="150px">
+                                    </div>
+                                    <input type="text" class="d-none">
+                                    <div class="pt-3 file-path" *ngIf="!url">
+                                        <span>
+                                            <i class="text-light fas fa-upload fa-6x"></i>
+                                            <!-- <i class="fas fa-expand fa-8x"></i> -->
+                                        </span>
+                                    </div>
+                                    <div>
+                                    </div>
+                                    <div>
+                                        <small>(.png/ .jpeg/ .jpg)</small>
+                                    </div>
+                                    <div class="fileUpload btn text-center">
+                                        <div class="dropZoneOverlay">
+                                            <i class="fa fa-cloud-upload"></i> Upload Product Image
+                                        </div>
+                                        <div class="my">
+                                            <input #myInput class="FileUpload" formControlName="productImage" type="file" accept=".png, .jpeg, .jpg" (change)="readUrl($event)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="closeModal()" mdbWavesEffect>Close</button>
+            <button [disabled]="productForm.invalid" type="button" mdbBtn color="primary" class="relative waves-light" (click)="saveProducts(productForm.value.prodPrice, productForm.value.prodSize, productForm.value.prodInfo)" mdbWavesEffect>Save</button>
+        </div>
+    </div>
+</div>

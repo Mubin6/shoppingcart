@@ -1,0 +1,41 @@
+<app-product-add-edit-modal [title]="title" (isProductAdded)="callGetProdService($event)" (closeProductModal)="closeProductModal($event)" mdbModal #productModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+    aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}" style="overflow-y: auto"></app-product-add-edit-modal>
+<app-product-confirmation-modal (closeConfirmationModal)="closeConfirmationModal($event)" [fileName]="fileName" mdbModal #confirmationModal="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}"></app-product-confirmation-modal>
+<!-- mdb-modal -->
+<div class="container-fluid admin-container">
+    <div class="text-center mt-3">
+        <h1 class="text-info">
+            <strong>Available Product List</strong>
+            <h5>(For Admin)</h5>
+        </h1>
+
+    </div>
+    <div class="text-right mt-3">
+        <button (click)="openProductModal('Add Product')" mdbBtn type="button" color="primary" outline="true" mdbWavesEffect>Add More Products</button>
+    </div>
+
+    <div class="col-md-12" *ngIf="productList.length > 0">
+        <div class="container table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center align-middle" *ngFor="let title of tableHeading">{{title}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let data of productList;let i=index">
+                        <td>{{i+1}}</td>
+                        <td class="text-center align-middle">{{data.filename}}</td>
+                        <td class="text-center align-middle">
+                            <span class="text-danger" matTooltip="Delete Product" [matTooltipPosition]="'right'" aria-label="Button that displays a tooltip in various positions">
+                                <i (click)="openConfirmationModal(data.filename, i)" class="fas fa-times-circle fa-2x"></i>
+                          </span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

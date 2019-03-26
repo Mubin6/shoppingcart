@@ -1,0 +1,38 @@
+.checkout {
+    @media screen and (min-width: 768px) {
+        // border: 1px solid red;
+        width: 90%;
+    }
+    .priceDetails {
+        margin: 10px auto;
+        margin-top: 90px;
+        .card {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+            border-radius: 0px;
+            .card-header {
+                color: #333;
+                font-size: 16px;
+                font-weight: 600; // background-color: #b3baaf;
+            }
+        }
+        .paymentCard {
+            // margin: 0px 0px 0px -15px;
+            .label {
+                font-size: 14px;
+                font-weight: 400;
+            }
+            .price {
+                font-size: 14px;
+                text-align: right;
+            }
+            .btn-order {
+                width: 100%;
+                font-size: 13px;
+                font-weight: 600;
+                padding-left: 0;
+                color: #303030;
+                background-color: #00BFD4 !important;
+            }
+        }
+    }
+}

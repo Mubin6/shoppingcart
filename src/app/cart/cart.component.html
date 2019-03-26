@@ -1,0 +1,158 @@
+<div class="cartContainer container" *ngIf="cartItems !== null">
+    <!-- || cartItems.length > 0 -->
+    <div class="row">
+        <div class="col-lg-8 cartlist">
+            <div class="card">
+                <div class="card-header">
+                    <div class="list-cart d-flex justify-content-between">
+                        <div>
+                            My Shopping Bag
+                        </div>
+                        <div>
+                            {{total | currency: 'INR'}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body border-bottom p-0" *ngFor="let item of cartItems; let i=index">
+                    <div class="cart-card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3 col-4">
+                                    <div class="productImg">
+                                        <!-- <img src="/assets/well/Kook-N-Keech-Men-Black-Slip-On-Sneakers.jpg" alt=""> -->
+                                        <img src="{{img}}/{{item['name']}}{{extn}}" alt="" width="100px" height="100px">
+                                        <!-- /assets/images/product1.jpg -->
+
+                                        <div class="mt-3 btnAdd d-none d-md-block">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button (click)="increment(i)" type=" button " class="btn btn-secondary ">+</button>
+                                                <button type="button " class="btn btn-secondary ">{{item['quantity']}}</button>
+                                                <button (click)="decrement(i)" type="button " class="btn btn-secondary ">-</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6 col-8 ">
+                                    <div class="productDetails d-flex justify-content-between ">
+                                        <div class="detailsInfo ">
+                                            <div class="pName ">
+                                                <a>{{item['name']}}</a>
+                                            </div>
+                                            <div class="pCatwgires ">
+                                                {{item['size']}}
+                                            </div>
+
+                                            <!-- <div class="pSeller ">
+                                                product['name']
+                                            </div> -->
+
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-12 ">
+                                    <div>
+                                        <div class="productPrice text-right ">
+
+                                            <div class="actual-price ">
+                                                {{item['quantity']*item['price'] | currency: 'INR'}} </div>
+                                            <!-- <div class="productOffers ">
+                                              <span class="offers "> 6% Off | </span>
+                                              <span class="total-price ">₹14,999</span>
+
+                                          </div> -->
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-12 ">
+                                    <div class="remove text-right">
+                                        <button (click)="removeBtn(i)" class="btn btn-sm btn-danger">REMOVE</button>
+                                        <!-- (click)="removeBtn() " -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4 cartPriceDetails ">
+            <div class="card paymentCard ">
+                <div class="card-header ">
+                    PRICE DETAILS
+                </div>
+                <div class="card-body ">
+                    <div class="row ">
+                        <div class="col-6 label ">
+                            Sub Total
+                        </div>
+                        <div class="col-6 price ">
+                            {{total | currency: 'INR'}}
+
+                        </div>
+                        <!-- <div class="col-6 label ">
+                            Bag Discount
+                        </div>
+                        <div class="col-6 price ">
+                            - Rs. 1,330
+
+                        </div>
+                        <div class="col-6 label ">
+                            Estimated Tax
+
+                        </div>
+                        <div class="col-6 price ">
+                            Rs. 102
+
+
+                        </div>
+                        <div class="col-6 label ">
+                            Coupon Discount
+                        </div>
+                        <div class="col-6 price ">
+                            Rs. 1,899
+
+                        </div> -->
+                        <div class="col-6 label ">
+                            Delivery
+                        </div>
+                        <div class="col-6 price ">
+                            FREE
+
+                        </div>
+                        <div class="col-12 ">
+                            <hr>
+                        </div>
+                        <div class="col-6 label ">
+                            Order Total
+                        </div>
+                        <div class="col-6 price ">
+                            {{total | currency: 'INR'}}
+                        </div>
+                        <div class="mb-2 col-12">
+                            <hr>
+                        </div>
+                        <div class="col-md-12">
+                            <button (click)="placeOrder()" class=" mb-2 btn btn-primary btn-block"> PLACE ORDER</button>
+                            <button routerLink="/tags" class="btn btn-warning btn-block"> CONTINUE SHOPPING</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container my-5" *ngIf="cartItems === null">
+    <!-- || cartItems.length <= 0 -->
+    No item in cart
+</div>

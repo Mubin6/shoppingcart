@@ -1,0 +1,82 @@
+<app-signin (closeModal)="closeForm($event)" [isLoginForm]="isLoginForm" mdbModal #signInform="mdb-modal" class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></app-signin>
+<div class="shop-navbar">
+    <div class="top-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 number-div">
+                    <span><i class="fab fa-whatsapp"></i></span>
+                    <span>+91-8999989091</span>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col cart-div">
+                    <span class="px-1">Customer Support</span>
+                    <span class="px-1">Track Order</span>
+                    <span class="px-1">
+                                <button class="cart-btn" mat-stroked-button>
+                                    <i class="fas fa-cart-plus"></i>
+                                    <span>Cart</span>
+                    </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Navbar-->
+    <mdb-navbar class="main-nav" SideClass="navbar navbar-expand-lg navbar-dark">
+
+        <!-- Navbar brand -->
+        <mdb-navbar-brand>
+            <a class="navbar-brand p-0" href="#">
+                BowBowTags.com
+            </a>
+            <div class="m-0">
+                <small>
+                    Tags For Your Pet
+                </small>
+            </div>
+        </mdb-navbar-brand>
+
+        <!-- Collapsible content -->
+        <links>
+
+            <!-- Links -->
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item waves-light">
+                    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home </a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect>
+                    <a routerLink="/tags" routerLinkActive="active" class="nav-link">Tags</a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect>
+                    <a routerLink="/photogallery" routerLinkActive="active" class="nav-link">Photo Gallery</a>
+                </li>
+                <li class="nav-item waves-light" mdbWavesEffect>
+                    <a routerLink="/aboutus" routerLinkActive="active" class="nav-link">About Us</a>
+                </li>
+                <li *ngIf="user && user.role === 'ADMIN'" class="nav-item waves-light" mdbWavesEffect>
+                    <a routerLink="/admin" routerLinkActive="active" class="nav-link">Admin</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li *ngIf="!user" class="nav-item waves-light" mdbWavesEffect>
+                    <a (click)="openForm(true)" class="nav-link">Login</a>
+                </li>
+                <li *ngIf="!user" class="nav-item waves-light" mdbWavesEffect>
+                    <a (click)="openForm(false)" class="nav-link">Register</a>
+                </li>
+                <li *ngIf="user" mdbWavesEffect>
+
+                    <button class="text-capitalize pl-1" mat-button [matMenuTriggerFor]="menu">Welcome, {{user.name}}<i class="ml-2 fas fa-angle-down"></i></button>
+                    <mat-menu #menu="matMenu">
+                        <a routerLink="/changepassword" mat-menu-item>Change Password</a>
+                        <button (click)="logOut()" mat-menu-item>Logout</button>
+                    </mat-menu>
+
+                </li>
+            </ul>
+
+        </links>
+        <!-- Collapsible content -->
+
+    </mdb-navbar>
+    <!--/.Navbar-->
+</div>

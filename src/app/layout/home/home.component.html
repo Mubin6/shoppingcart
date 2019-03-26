@@ -1,0 +1,50 @@
+<div class="container-fluid p-0 home-page">
+    <div class="row m-0 justify-content-center">
+        <div class="col-lg-12 p-0">
+            <mdb-carousel [isControls]="true" [animation]="'slide'">
+                <mdb-carousel-item>
+                    <img class="d-block w-100" src="/assets/images/homeImg2.jpg" alt="First slide">
+                </mdb-carousel-item>
+
+                <mdb-carousel-item>
+                    <img class="d-block w-100" src="/assets/images/homeImg3.jpg" alt="Second slide">
+                </mdb-carousel-item>
+
+                <mdb-carousel-item>
+                    <img class="d-block w-100" src="/assets/images/homeImg4.jpg" alt="Third slide">
+                </mdb-carousel-item>
+            </mdb-carousel>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center mt-2">
+        <div class="col-12 text-center">
+            <h2 style="font-weight:500">
+                Our Featured Products
+            </h2>
+        </div>
+    </div>
+    <div class="row m-0">
+
+        <div class="col-lg-4 mt-4" *ngFor="let img of cardImages">
+            <mdb-card>
+                <mdb-card-img [src]="img?.image" alt="Card image cap"></mdb-card-img>
+                <mdb-card-body>
+
+                    <mdb-card-title>
+                        <h4>Product Name</h4>
+                    </mdb-card-title>
+
+                    <mdb-card-text> Some quick example text to build on the card title and make up the bulk of the card's content. </mdb-card-text>
+
+                </mdb-card-body>
+            </mdb-card>
+        </div>
+        <div class="col-lg-12 p-0">
+            <app-carousel></app-carousel>
+        </div>
+    </div>
+</div>

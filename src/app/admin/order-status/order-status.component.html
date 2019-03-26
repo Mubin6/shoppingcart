@@ -1,0 +1,40 @@
+<div class="container mt-3">
+    <div class="row justify-content-center m-0">
+        <mat-radio-group (change)="selectedBtn($event)">
+            <mat-radio-button color="primary" checked value="received">Recieved</mat-radio-button>
+            <mat-radio-button color="primary" value="delivered">Delivered</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="row m-0 table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center align-middle" *ngFor="let title of tableHeading">{{title}}</th>
+                    <th class="text-center align-middle" *ngIf="sts === 'received'">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor="let data of orderSts;let i=index">
+                    <td class="text-center align-middle">{{data.id}}</td>
+                    <td class="text-center align-middle">{{data.username}}</td>
+                    <td class="text-center align-middle">
+                        {{data.useremailid}}
+                    </td>
+                    <td class="text-center align-middle">
+                        {{data.phoneno}}
+                    </td>
+                    <td class="text-center align-middle">
+                        {{data.totalamount}}
+                    </td>
+                    <td>
+                        <button (click)="billDetailDetail(data.id)" mdbBtn type="button" color="info" outline="true" mdbWavesEffect>Get Bill</button>
+                    </td>
+                    <td *ngIf="sts === 'received'">
+                        <button (click)="statusOrderDetail(data.id, i)" mdbBtn type="button" color="primary" outline="true" mdbWavesEffect>Update as Delivered</button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

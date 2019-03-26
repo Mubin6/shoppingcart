@@ -1,0 +1,16 @@
+.signInForm {
+    .modal-dialog {
+        .modal-content {
+            .modal-header {
+                .close-icon {
+                    cursor: pointer;
+                }
+            }
+            .modal-body {
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
